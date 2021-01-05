@@ -5,3 +5,7 @@
 
 - [ ] Profile
 - [ ] Repo
+
+# Outras features
+
+- [ ] Dark/Light mode

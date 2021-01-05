@@ -1,11 +1,9 @@
 import React from 'react';
 
+import ProfilePage from './pages/Profile';
+
 function App() {
-  return (
-    <div className="App">
-      <h1>Hello</h1>
-    </div>
-  );
+  return <ProfilePage />;
 }
 
 export default App;
