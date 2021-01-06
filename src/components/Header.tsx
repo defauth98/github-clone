@@ -4,7 +4,7 @@ import { AiFillGithub } from 'react-icons/ai';
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-gray-800 h-14 flex items-center px-2">
+    <header className="bg-gray-800 h-14 flex items-center px-2 w-full 	">
       <button className="mr-4 cursor-pointer">
         <AiFillGithub size={40} />
       </button>
