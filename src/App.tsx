@@ -13,9 +13,9 @@ function App() {
     <Router>
       <Header />
 
-      <Route path="/" element={ProfilePage} />
-      <Route path="/:username" element={ProfilePage} />
-      <Route path="/:username/:repo" element={RepoPage} />
+      <ProfilePage />
+      {/* <Route path="/:username" element={ProfilePage} />
+      <Route path="/:username/:repo" element={RepoPage} /> */}
 
       <Footer />
     </Router>

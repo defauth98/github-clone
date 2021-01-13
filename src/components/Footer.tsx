@@ -3,7 +3,7 @@ import { AiFillGithub } from 'react-icons/ai';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="w-4/5 border-b-2 flex items-center justify-center	">
+    <footer className="w-5/5 border-b-2 flex items-center justify-center m-auto">
       <AiFillGithub size={40} />
     </footer>
   );
