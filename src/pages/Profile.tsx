@@ -1,19 +1,22 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-import RepoItem from '../components/RepoItem';
+import RepoGrid from '../components/RepoGrid';
 
-interface Repo {
+interface userData {
+  avatar_url: string;
   name: string;
-  description: string;
-  stargazers_count: string;
-  language: string;
-  forks_count: string;
+  login: string;
+  followers: string;
+  following: string;
+  company: string;
+  location: string;
+  twitter_username: string;
 }
 
 const ProfilePage: React.FC = () => {
   const [username = 'defauth98', setUsername] = useState('defauth98');
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState<userData>({} as userData);
   const [repos, setRepos] = useState([]);
 
   useEffect(() => {
@@ -21,7 +24,7 @@ const ProfilePage: React.FC = () => {
       .get(`https://api.github.com/users/${username}`)
       .then((userReponse) => {
         if (userReponse.status === 400) {
-          setUserData({ error: 'User not found' });
+          setUserData({} as userData);
 
           return;
         }
@@ -50,28 +53,27 @@ const ProfilePage: React.FC = () => {
   }, [username]);
 
   return (
-    <div className="flex items-center justify-center my-4">
+    <div className="flex flex-col items-center my-4 mx-4">
       <nav>
         <ul>
           <li>Repositories</li>
         </ul>
       </nav>
-      <aside>
-        <h2>Repositórios</h2>
-        <ul className="grid gap-4 grid-cols-2">
-          {repos.map((repo: Repo) => (
-            <RepoItem
-              key={repo.name}
-              repoName={repo.name}
-              description={repo.description}
-              language={repo.language}
-              stars={repo.stargazers_count}
-              forks={repo.forks_count}
-            />
-          ))}
-        </ul>
-      </aside>
-      <main></main>
+      <div className="flex w-4/5">
+        <aside>
+          <img src={userData.avatar_url} alt={userData.name} />
+          <h1>{userData.name}</h1>
+          <h2>{userData.login}</h2>
+          <span>{userData.followers} followers</span>
+          <span>{userData.following} following</span>
+          <span>{userData.company}</span>
+          <span>{userData.location}</span>
+          <span>{userData.twitter_username}</span>
+        </aside>
+        <main>
+          <RepoGrid repos={repos} />
+        </main>
+      </div>
     </div>
   );
 };
