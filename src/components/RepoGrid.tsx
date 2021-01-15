@@ -16,18 +16,20 @@ interface RepoGridProps {
 
 const RepoGrid: React.FC<RepoGridProps> = ({ repos }) => {
   return (
-    <ul className="grid gap-4 grid-cols-2">
-      {repos.map((repo: Repo) => (
-        <RepoItem
-          key={repo.name}
-          repoName={repo.name}
-          description={repo.description}
-          language={repo.language}
-          stars={repo.stargazers_count}
-          forks={repo.forks_count}
-        />
-      ))}
-    </ul>
+    <main>
+      <ul className="grid gap-4 grid-cols-2">
+        {repos.map((repo: Repo) => (
+          <RepoItem
+            key={repo.name}
+            repoName={repo.name}
+            description={repo.description}
+            language={repo.language}
+            stars={repo.stargazers_count}
+            forks={repo.forks_count}
+          />
+        ))}
+      </ul>
+    </main>
   );
 };
 

@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 import RepoGrid from '../components/RepoGrid';
+import ProfileInfo from '..//components/ProfileInfo';
 
 interface userData {
   avatar_url: string;
@@ -60,19 +61,8 @@ const ProfilePage: React.FC = () => {
         </ul>
       </nav>
       <div className="flex w-4/5">
-        <aside>
-          <img src={userData.avatar_url} alt={userData.name} />
-          <h1>{userData.name}</h1>
-          <h2>{userData.login}</h2>
-          <span>{userData.followers} followers</span>
-          <span>{userData.following} following</span>
-          <span>{userData.company}</span>
-          <span>{userData.location}</span>
-          <span>{userData.twitter_username}</span>
-        </aside>
-        <main>
-          <RepoGrid repos={repos} />
-        </main>
+        <ProfileInfo userData={userData} />
+        <RepoGrid repos={repos} />
       </div>
     </div>
   );
