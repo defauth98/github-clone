@@ -36,11 +36,11 @@ const RepoItem: React.FC<RepoItemProps> = ({
         ) : null}
 
         <span className="text-xs text-gray-500 flex items-center mr-2">
-          <RiStarLine size={16} color="gray" />
+          <RiStarLine size={16} color="gray" className="mr-2" />
           {stars}
         </span>
         <span className="text-xs text-gray-500 flex items-center  ">
-          <AiOutlineFork size={16} color="gray" />
+          <AiOutlineFork size={16} color="gray" className="mr-2" />
           {forks}
         </span>
       </div>

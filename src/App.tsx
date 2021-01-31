@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -9,6 +9,10 @@ import ProfilePage from './pages/Profile';
 // import RepoPage from './pages/Repo';
 
 function App() {
+  const [username = 'defauth98', setUsername] = useState('');
+
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {}
+
   return (
     <Router>
       <Header />
